@@ -86,7 +86,7 @@ export default function SingleProductvariants({
           >
             {variant.id > product.variants.length ? (
               <div>
-                <div className="bg-white w-40 h-40 flex flex-col justify-center items-center shadow-sm">
+                <div className="bg-white w-40 h-40 flex flex-col justify-center items-center shadow-sm border-dashed">
                   <div className="flex justify-center items-center rounded-lg px-3 border border-gray-200 mx-4">
                     <div
                       className="rounded-md overflow-hidden py-2 px-1 text-xl font-semibold flex justify-between items-center cursor-pointer"
@@ -101,8 +101,8 @@ export default function SingleProductvariants({
                 </div>
               </div>
             ) : (
-              <div className="bg-white h-40 pt-6 flex flex-col justify-center items-center shadow-sm">
-                <div className="w-full flex justify-center items-center rounded-xl">
+              <div className="bg-white h-40 pt-6 flex flex-col justify-center items-center shadow-sm border-dashed border-2">
+                <div className="w-full flex justify-center items-center rounded-2xl">
                   <div className="rounded-md overflow-hidden relative">
                     <div
                       className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] cursor-pointer bg-white px-3 py-2 rounded-lg hidden group-hover:block"

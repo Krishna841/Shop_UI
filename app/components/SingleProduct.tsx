@@ -36,7 +36,7 @@ export default function SingleProduct({ product, setProducts }: Props) {
         </div>
         <div className="w-full px-4 py-4 border-r border-gray-200 h-full text-center">
           <div className="w-full bg-white h-40">
-            <div className="h-full w-full flex justify-center items-center">
+            <div className="h-full w-full flex justify-center items-center border-dashed border-2">
               <div className="h-16 max-w-96 flex justify-start px-10 items-center flex-wrap">
                 {product.filters.length > 0 ? (
                   product.filters.map((filter) => (
