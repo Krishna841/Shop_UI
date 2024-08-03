@@ -12,6 +12,31 @@ import toast from "react-hot-toast";
 export default function Table() {
   const [variantCount, setvariantCount] = useState(2);
   const [products, setProducts] = useState<Product[]>(data);
+
+  const makePrimary = (index : number) =>{
+    setProducts((prev: Product[]) => {
+      return prev.map((prod) => {
+          if (index < 0 || index >= prod.variants.length) {
+              throw new Error("Variant index out of bounds");
+          }
+
+          let selectedVariant = prod.variants[index];
+          let newArr = [selectedVariant];
+
+          for (let i = 0; i < prod.variants.length; i++) {
+              if (i !== index) {
+                  newArr.push(prod.variants[i]);
+              }
+          }
+
+          // Return the updated product with the new variants array
+          return {
+              ...prod,
+              variants: newArr,
+          };
+      });
+  });
+  }
   return (
     <div className="w-full bg-gray-100 rounded-lg p-12">
       <div className="mx-8 my-6 w-auto flex">
@@ -59,7 +84,8 @@ export default function Table() {
                   <div className="text-md font-semibold w-64">
                     {index === 0 ? "Primary variant" : `Variant ${index + 1}`}
                   </div>
-                  <BsThreeDotsVertical />
+                  <BsThreeDotsVertical onClick={()=>makePrimary(index)
+                  } />
                 </div>
               ))}
             </div>
